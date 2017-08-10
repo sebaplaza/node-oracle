@@ -11,7 +11,7 @@ RUN apt-get update \
   #CLEAN EVERYTHING
   && rm *.zip \
   && apt-get remove -y --purge wget unzip \
-  && apt-get autoremove -y \
+  && apt-get autoremove -y --purge \
   && apt-get clean
 
 ENV LD_LIBRARY_PATH="/opt/oracle/instantclient"
