@@ -9,6 +9,7 @@ By the moment, is not possible to use an alpine image because the lack of glibc.
 Some efforts have been made in this way https://github.com/sgerrand/alpine-pkg-glibc
 But in running time of a node application using the driver oracledb we have incompatibility problems
 
+# Usage (in your Dockerfile):
 ```
 FROM sebaplaza/node-oracle
 WORKDIR /src
@@ -24,4 +25,16 @@ RUN apt-get install -y python make g++ \
     && apt-get remove -y --purge python make g++ \
     && apt-get autoremove -y --purge \
     && apt-get clean
+    
+ # Define working directory
+ADD . /src/
+
+# Define env variables
+ENV NODE_ENV 'production'
+
+# Expose port
+EXPOSE 80
+
+# Run app
+CMD ["node", "server.js"]
 ```
