@@ -18,9 +18,10 @@ ADD package.json yarn.lock .npmrc /src/
 # https://github.com/nodejs/node-gyp
 RUN apt-get install -y python make g++ \
     # Install npm modules
-    && npm install --production \
+    && yarn install --production --pure-lockfile \
     # Clean everything
-    && npm cache clean \
+    && yarn cache clean \
     && apt-get remove -y --purge python make g++ \
+    && apt-get autoremove -y --purge \
     && apt-get clean
 ```
