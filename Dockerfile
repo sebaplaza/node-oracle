@@ -1,5 +1,7 @@
 FROM node:6-slim
+LABEL maintainer="sebastianplaza@gmail.com"
 
+# Install instant client and clean unused packages after
 RUN apt-get update \
   && apt-get install -y libaio1 vim unzip wget \
   && mkdir -p /opt/oracle \
@@ -8,7 +10,7 @@ RUN apt-get update \
   && unzip "*.zip" -d /opt/oracle \
   && mv /opt/oracle/instantclient_12_2 /opt/oracle/instantclient \
   && ln -s /opt/oracle/instantclient/libclntsh.so.12.1 /opt/oracle/instantclient/libclntsh.so \
-  #CLEAN EVERYTHING
+  # Clean everything
   && rm *.zip \
   && apt-get remove -y --purge wget unzip \
   && apt-get autoremove -y --purge \
