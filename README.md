@@ -21,7 +21,8 @@ ADD package.json yarn.lock .npmrc /src/
 
 # We add some dependencies for node-gyp native node_modules (like oracledb)
 # https://github.com/nodejs/node-gyp
-RUN apt-get install -y python make g++ \
+RUN apt-get update \
+    && apt-get install -y python make g++ \
     # Install npm modules
     && yarn install --production --pure-lockfile \
     # Clean everything
