@@ -1,7 +1,7 @@
 # node-oracle
 
-This docker image contains Node 6 LTS and Oracle Instant Client 12.2.0.1
-Is based on node:6-slim and instant client basic lite
+This docker image contains Node 6/8 LTS and Oracle Instant Client 12.2.0.1
+Is based on node slim images and instant client basic lite
 
 Is a very light image ~270mb !
 
@@ -13,7 +13,7 @@ But in running time of a node application using the driver oracledb we have inco
 
 ## Usage (in your Dockerfile):
 ```
-FROM sebaplaza/node-oracle
+FROM sebaplaza/node-oracle:8
 WORKDIR /src
 
 # Provides cached layer for node_modules
