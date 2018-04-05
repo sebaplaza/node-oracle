@@ -3,7 +3,7 @@
 This docker image contains Node 6 LTS and Oracle Instant Client 12.2.0.1
 Is based on node:6-slim and instant client basic lite
 
-Is a very light image ~360m !
+Is a very light image ~270mb !
 
 The idea is to have the lightest node oracle docker image.
 By the moment, is not possible to use an alpine image because the lack of glibc.
@@ -29,7 +29,8 @@ RUN apt-get update \
     && yarn cache clean \
     && apt-get remove -y --purge python make g++ \
     && apt-get autoremove -y --purge \
-    && apt-get clean
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Define working directory
 ADD . /src/
