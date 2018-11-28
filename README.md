@@ -12,15 +12,16 @@ Some efforts have been made in this way https://github.com/sgerrand/alpine-pkg-g
 But in running time of a node application using the driver oracledb we have incompatibility problems
 
 ## Usage (in your Dockerfile):
-```
+```dockerfile
 FROM sebaplaza/node-oracle:8
 WORKDIR /src
 
 # Provides cached layer for node_modules
 ADD package.json yarn.lock .npmrc /src/
 
-# We add some dependencies for node-gyp native node_modules (like oracledb)
+# We add some dependencies for build node-gyp native node_modules (like oracledb)
 # https://github.com/nodejs/node-gyp
+# we do it here because we only need them to install npm dependencies, we can remove them later
 RUN apt-get update \
     && apt-get install -y python make g++ \
     # Install npm modules
