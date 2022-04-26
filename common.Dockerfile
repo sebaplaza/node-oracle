@@ -1,4 +1,3 @@
-FROM node:6-slim
 LABEL maintainer="sebastianplaza@gmail.com"
 
 # Add Tini
@@ -23,7 +22,7 @@ RUN apt-get update \
   && apt-get autoremove -y --purge \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
-  
+
 ENV LD_LIBRARY_PATH="/opt/oracle/instantclient"
 ENV OCI_HOME="/opt/oracle/instantclient"
 ENV OCI_LIB_DIR="/opt/oracle/instantclient"
