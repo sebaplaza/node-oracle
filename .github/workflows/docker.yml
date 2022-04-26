@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - "master"
+  # build images every sunday at 00
+  schedule:
+    - cron: "0 0 * * SUN"
 
 jobs:
   build:
