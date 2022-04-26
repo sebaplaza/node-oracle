@@ -1,5 +1,7 @@
 # node-oracle
 
+[![ci](https://github.com/sebaplaza/node-oracle/actions/workflows/docker.yml/badge.svg)](https://github.com/sebaplaza/node-oracle/actions/workflows/docker.yml)
+
 This docker image contains Node 6...16 LTS and Oracle Instant Client 12.2.0.1
 Is based on node slim images and instant client basic lite
 
